@@ -1,6 +1,13 @@
 name: Swift
 
-on: [push]
+on: 
+  push:
+    branches:    
+      - main
+
+  pull_request:
+    branches:    
+      - main
 
 jobs:
   build:
@@ -9,7 +16,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Build
-        run: swift build
+      - name: Run mockserver
+        run: cd MyLibrary; cd Tests; cd MyLibraryTests; cd mockserver; node index.js &
       - name: Run tests
-        run: swift test
+        run: cd MyLibrary; swift test -v
