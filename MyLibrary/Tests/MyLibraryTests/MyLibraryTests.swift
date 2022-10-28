@@ -9,8 +9,6 @@ final class MyLibraryTests: XCTestCase {
         XCTAssertNotNil(filePath)
     }
     
-    
-    
     func testTemperature() throws{
         
         //given
